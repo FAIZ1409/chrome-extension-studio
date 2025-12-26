@@ -1,0 +1,51 @@
+/**
+ * YouTube Focus Mode - Content Styles
+ * Additional styles injected alongside the content script
+ */
+
+/* Smooth transitions for filtered elements */
+ytd-video-renderer,
+ytd-rich-item-renderer,
+ytd-compact-video-renderer {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Hidden class animation */
+.focus-hidden {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Ensure dashboard overlays YouTube properly */
+#focus-mode-dashboard {
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+/* Fix for YouTube's dark mode compatibility */
+html[dark] #focus-mode-dashboard,
+[dark] #focus-mode-dashboard {
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #0f0f23 100%) !important;
+}
+
+/* Badge positioning fix for different video layouts */
+ytd-thumbnail {
+  position: relative !important;
+}
+
+ytd-rich-grid-media ytd-thumbnail {
+  position: relative !important;
+}
+
+/* Prevent layout shift when hiding elements */
+ytd-rich-grid-row {
+  contain: layout;
+}
+
+ytd-rich-item-renderer.focus-hidden {
+  margin: 0 !important;
+  padding: 0 !important;
+}
