@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Focus Mode</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Focus Mode</span>
+      </div>
+      <div class="toggle-container">
+        <label class="toggle">
+          <input type="checkbox" id="focusModeToggle" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+    </header>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+      <h3>Today's Stats</h3>
+      <div class="stats-grid">
+        <div class="stat-card educational">
+          <span class="stat-value" id="educationalTime">0m</span>
+          <span class="stat-label">Educational</span>
+        </div>
+        <div class="stat-card blocked">
+          <span class="stat-value" id="blockedCount">0</span>
+          <span class="stat-label">Blocked</span>
+        </div>
+        <div class="stat-card streak">
+          <span class="stat-value" id="focusStreak">0</span>
+          <span class="stat-label">Day Streak</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab active" data-tab="allowed">Allowed Keywords</button>
+      <button class="tab" data-tab="blocked">Blocked Keywords</button>
+    </div>
+
+    <!-- Allowed Keywords Panel -->
+    <div class="tab-content active" id="allowed-panel">
+      <div class="keyword-input-group">
+        <input type="text" id="allowedInput" placeholder="Add allowed keyword...">
+        <button class="btn-add" id="addAllowed">+</button>
+      </div>
+      <div class="keywords-list" id="allowedList"></div>
+    </div>
+
+    <!-- Blocked Keywords Panel -->
+    <div class="tab-content" id="blocked-panel">
+      <div class="keyword-input-group">
+        <input type="text" id="blockedInput" placeholder="Add blocked keyword...">
+        <button class="btn-add" id="addBlocked">+</button>
+      </div>
+      <div class="keywords-list" id="blockedList"></div>
+    </div>
+
+    <!-- Pomodoro Section -->
+    <section class="pomodoro-section">
+      <h3>Pomodoro Timer</h3>
+      <div class="timer-display" id="timerDisplay">25:00</div>
+      <div class="timer-controls">
+        <button class="btn-timer" id="startTimer">Start</button>
+        <button class="btn-timer secondary" id="resetTimer">Reset</button>
+      </div>
+      <div class="timer-presets">
+        <button class="preset" data-time="25">25m</button>
+        <button class="preset" data-time="45">45m</button>
+        <button class="preset" data-time="60">60m</button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <button class="btn-reset-stats" id="resetStats">Reset Daily Stats</button>
+      <p class="version">v1.0.0 • Stay Focused, Build Your Future</p>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
